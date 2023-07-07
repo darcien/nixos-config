@@ -5,10 +5,6 @@
     ./ssh.nix
 
     <home-manager/nixos>
-
-    # TODO: Move to home manager
-    # https://github.com/nix-community/nixos-vscode-server#enable-the-service
-    (fetchTarball "https://github.com/nix-community/nixos-vscode-server/tarball/master")
   ];
 
   boot.cleanTmpDir = true;
@@ -29,8 +25,6 @@
     wget
     nixpkgs-fmt # https://github.com/nix-community/nixpkgs-fmt#installation
   ];
-
-  services.vscode-server.enable = true;
 
   users.users.darcien = {
     isNormalUser = true;
