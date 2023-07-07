@@ -21,9 +21,11 @@
 
   environment.systemPackages = with pkgs; [
     curl
+    file
     htop
+    lsof
+    nixpkgs-fmt # https://github.com/nix-community/nixpkgs-fmt
     wget
-    nixpkgs-fmt # https://github.com/nix-community/nixpkgs-fmt#installation
   ];
 
   users.users.darcien = {
