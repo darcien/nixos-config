@@ -17,8 +17,6 @@
   boot.kernel.sysctl."net.ipv6.conf.all.forwarding" = 1;
 
   networking = {
-    # Commented out, using tailscale config instead
-    # nameservers = [ "8.8.8.8"];
     defaultGateway = "167.172.64.1";
     defaultGateway6 = {
       address = "2400:6180:0:d0::1";
