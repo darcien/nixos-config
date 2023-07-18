@@ -11,10 +11,20 @@
   # Fix "warning: Strict reverse path filtering breaks Tailscale exit node use and some subnet routing setups."
   networking.firewall.checkReversePath = "loose";
 
+  networking.firewall.allowedUDPPorts = [
+    # DNS
+    53
+  ];
+
   # Enable IP forwarding for Tailscale exit node
   # https://tailscale.com/kb/1019/subnets/?tab=linux#enable-ip-forwarding
   boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
   boot.kernel.sysctl."net.ipv6.conf.all.forwarding" = 1;
+
+  # Getting high CPU usage from tailscaled
+  # when using MagicDNS with no systemd-networkd.
+  # https://github.com/tailscale/tailscale/issues/8563
+  systemd.network.enable = true;
 
   networking = {
     defaultGateway = "167.172.64.1";
