@@ -12,8 +12,7 @@
   networking.firewall.checkReversePath = "loose";
 
   networking.firewall.allowedUDPPorts = [
-    # DNS
-    53
+    53 # DNS
   ];
 
   # Enable IP forwarding for Tailscale exit node
@@ -25,6 +24,13 @@
   # when using MagicDNS with no systemd-networkd.
   # https://github.com/tailscale/tailscale/issues/8563
   systemd.network.enable = true;
+
+  # Fix `Timeout occurred while waiting for network connectivity.` error
+  # when rebuilding.
+  # Seems to be stuck waiting on eth1 to be up.
+  # https://github.com/tailscale/tailscale/issues/8563#issuecomment-1640334455
+  # https://github.com/NixOS/nixpkgs/issues/180175#issuecomment-1473408913
+  systemd.services.systemd-networkd-wait-online.enable = lib.mkForce false;
 
   networking = {
     defaultGateway = "167.172.64.1";
