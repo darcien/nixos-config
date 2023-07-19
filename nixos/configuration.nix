@@ -3,6 +3,7 @@
     ./hardware-configuration.nix
     ./networking.nix
     ./ssh.nix
+    # ./garage.nix
 
     <home-manager/nixos>
   ];
@@ -25,8 +26,16 @@
     htop
     lsof
     nixpkgs-fmt # https://github.com/nix-community/nixpkgs-fmt
+    pinentry-curses
     wget
   ];
+
+  services.pcscd.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryFlavor = "curses";
+    enableSSHSupport = true;
+  };
 
   users.users.darcien = {
     isNormalUser = true;
