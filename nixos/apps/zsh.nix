@@ -17,8 +17,8 @@
     localVariables = {
       LANG = "en_US.UTF-8";
       CLICOLOR = 1;
-      EDITOR = "code";
-      VISUAL = "code";
+      EDITOR = "code --wait";
+      VISUAL = "code --wait";
       TERM = "xterm-256color";
     };
 

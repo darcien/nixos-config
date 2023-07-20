@@ -1,9 +1,12 @@
 { pkgs, ... }: {
   imports = [
+    "${builtins.fetchTarball "https://github.com/ryantm/agenix/archive/main.tar.gz"}/modules/age.nix"
+
     ./hardware-configuration.nix
     ./networking.nix
     ./ssh.nix
-    # ./garage.nix
+    ./age.nix
+    ./garage.nix
 
     <home-manager/nixos>
   ];
@@ -28,6 +31,8 @@
     nixpkgs-fmt # https://github.com/nix-community/nixpkgs-fmt
     pinentry-curses
     wget
+
+    (pkgs.callPackage "${builtins.fetchTarball "https://github.com/ryantm/agenix/archive/main.tar.gz"}/pkgs/agenix.nix" { })
   ];
 
   services.pcscd.enable = true;
