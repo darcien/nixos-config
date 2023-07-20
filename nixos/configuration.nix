@@ -7,6 +7,7 @@
     ./ssh.nix
     ./age.nix
     ./garage.nix
+    ./nginx.nix
 
     <home-manager/nixos>
   ];
