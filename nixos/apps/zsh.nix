@@ -39,6 +39,8 @@
       # Make selection visible and allow using arrow keys to select
       # Need compinit to works
       zstyle ':completion:*' menu select
+
+      export PATH="/home/darcien/.deno/bin:$PATH"
     '';
   };
 }

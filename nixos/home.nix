@@ -27,6 +27,7 @@ in
   home.stateVersion = "22.11";
 
   home.packages = with pkgs; [
+    pkgsUnstable.deno
     pkgsUnstable.hugo
     pkgsUnstable.just
     pkgsUnstable.openssl

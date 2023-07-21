@@ -8,6 +8,7 @@
     ./age.nix
     ./garage.nix
     ./nginx.nix
+    ./pelorperak.nix
 
     <home-manager/nixos>
   ];

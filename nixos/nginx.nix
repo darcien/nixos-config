@@ -35,6 +35,9 @@ in
 
     # ref https://github.com/NULLx76/infrastructure/blob/5a26864eafc11f6535c53248919ff296f3ed941a/nixos/hosts/hades/nginx/configuration.nix#L62
     virtualHosts."s3.darcien.dev" = proxy "http://127.0.0.1:3900";
+
+    virtualHosts."pelorperak.darcien.dev" = proxy "http://127.0.0.1:3000";
+    virtualHosts."pp.darcien.dev" = proxy "http://127.0.0.1:3000";
   };
 
 }
