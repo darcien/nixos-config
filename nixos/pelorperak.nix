@@ -17,6 +17,7 @@ in
     serviceConfig = {
       ExecStart = "/home/darcien/.deno/bin/silverbullet --auth=${silverbulletDir}.auth.json ${silverbulletDir}space/";
       Restart = "on-failure";
+      User = "root";
     };
 
     environment = {

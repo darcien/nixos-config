@@ -9,6 +9,7 @@
     ./garage.nix
     ./nginx.nix
     ./pelorperak.nix
+    ./gitRoot.nix
 
     <home-manager/nixos>
   ];
