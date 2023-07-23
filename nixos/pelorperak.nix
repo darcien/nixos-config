@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 let
   pkgsUnstable = import <nixpkgs-unstable> { };
   silverbulletDir = "/home/darcien/projects/pelorperak/";
@@ -16,8 +17,14 @@ in
     enable = true;
     serviceConfig = {
       ExecStart = "/home/darcien/.deno/bin/silverbullet --auth=${silverbulletDir}.auth.json ${silverbulletDir}space/";
+      WorkingDirectory = silverbulletDir;
+
       Restart = "on-failure";
-      User = "root";
+
+      # Run service as user and group,
+      # otherwise it will default as root user
+      User = "darcien";
+      Group = "users";
     };
 
     environment = {
@@ -26,6 +33,9 @@ in
 
     path = [
       pkgsUnstable.deno
+      # Expose git and ssh for sync with GitHub repo (via git plug)
+      pkgs.git
+      pkgs.openssh
     ];
 
     wants = [
