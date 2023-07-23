@@ -5,16 +5,14 @@ in
 {
   # After rebuild, do:
   # 1. Start the service, check its working or not
-  # systemctl --user start pelorperak
+  # sudo systemctl start pelorperak
   # 2. If it's working, enable it
-  # systemctl --user enable pelorperak
+  # sudo systemctl enable pelorperak
 
-  # From https://github.com/nix-community/nixos-vscode-server
-  # Enabling the user service creates a symlink to the Nix store,
-  # but the linked store path could be garbage collected at some point.
-  # One workaround to this particular issue is creating the following symlink:
-  # ln -sfT /run/current-system/etc/systemd/user/pelorperak.service ~/.config/systemd/user/pelorperak.service
-  systemd.user.services.pelorperak = {
+  # Not using user services as they get killed after a while
+  # if user is not logged in.
+
+  systemd.services.pelorperak = {
     enable = true;
     serviceConfig = {
       ExecStart = "/home/darcien/.deno/bin/silverbullet --auth=${silverbulletDir}.auth.json ${silverbulletDir}space/";
@@ -35,7 +33,7 @@ in
     after = [
       "network-online.target"
     ];
-    wantedBy = [ "default.target" ];
+    wantedBy = [ "multi-user.target" ];
   };
 }
 
