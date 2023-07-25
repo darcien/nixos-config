@@ -10,6 +10,7 @@
     ./nginx.nix
     ./pelorperak.nix
     ./gitRoot.nix
+    ./kidsfox.nix
 
     <home-manager/nixos>
   ];

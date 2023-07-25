@@ -3,6 +3,9 @@
 let
   pkgsUnstable = import <nixpkgs-unstable> { };
 
+  pelorperakUrl = "http://127.0.0.1:3000";
+  kfSilverbulletUrl = "http://127.0.0.1:5252";
+
   proxy = url: {
     enableACME = true;
     forceSSL = true;
@@ -36,8 +39,13 @@ in
     # ref https://github.com/NULLx76/infrastructure/blob/5a26864eafc11f6535c53248919ff296f3ed941a/nixos/hosts/hades/nginx/configuration.nix#L62
     virtualHosts."s3.darcien.dev" = proxy "http://127.0.0.1:3900";
 
-    virtualHosts."pelorperak.darcien.dev" = proxy "http://127.0.0.1:3000";
-    virtualHosts."pp.darcien.dev" = proxy "http://127.0.0.1:3000";
+    virtualHosts."pelorperak.darcien.dev" = proxy pelorperakUrl;
+    virtualHosts."pp.darcien.dev" = proxy pelorperakUrl;
+
+    virtualHosts."kidsfox.darcien.dev" = proxy kfSilverbulletUrl;
+    virtualHosts."kf.darcien.dev" = proxy kfSilverbulletUrl;
+    # https://👶🦊.darcien.dev (emoji -> punnycode)
+    virtualHosts."xn--4q8hi5f.darcien.dev" = proxy kfSilverbulletUrl;
   };
 
 }
