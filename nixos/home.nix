@@ -9,6 +9,7 @@ in
   imports = [
     "${fetchTarball "https://github.com/msteen/nixos-vscode-server/tarball/master"}/modules/vscode-server/home.nix"
 
+    ./apps/btop.nix
     ./apps/git.nix
     ./apps/lazygit.nix
     ./apps/lsd.nix
