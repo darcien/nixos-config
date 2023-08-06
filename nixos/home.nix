@@ -30,6 +30,7 @@ in
     pkgsUnstable.deno
     pkgsUnstable.hugo
     pkgsUnstable.just
+    pkgsUnstable.lazygit
     pkgsUnstable.openssl
   ];
 

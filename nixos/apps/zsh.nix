@@ -6,6 +6,7 @@
 
     shellAliases = {
       p = "cd ~/projects";
+      lg = "lazygit";
       update = "sudo nixos-rebuild switch";
       garbage = "nix-collect-garbage -d";
     };
