@@ -18,7 +18,7 @@ in
     <home-manager/nixos>
   ];
 
-  boot.cleanTmpDir = true;
+  boot.tmp.cleanOnBoot = true;
   zramSwap.enable = true;
   system.stateVersion = "22.11";
   networking.hostName = "shigure";
