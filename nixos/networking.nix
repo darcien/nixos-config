@@ -11,6 +11,12 @@
   # Fix "warning: Strict reverse path filtering breaks Tailscale exit node use and some subnet routing setups."
   networking.firewall.checkReversePath = "loose";
 
+  # Not used for now, getting SMTP time out
+  # networking.firewall.allowedTCPPorts = [
+  #   465 # SMTP SSL
+  #   587 # SMTP STARTTLS
+  # ];
+
   networking.firewall.allowedUDPPorts = [
     53 # DNS
   ];
