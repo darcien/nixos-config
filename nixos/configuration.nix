@@ -1,4 +1,8 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+let
+  pkgsUnstable = import <nixpkgs-unstable> { };
+in
+{
   imports = [
     "${builtins.fetchTarball "https://github.com/ryantm/agenix/archive/main.tar.gz"}/modules/age.nix"
 
@@ -36,6 +40,8 @@
     wget
 
     (pkgs.callPackage "${builtins.fetchTarball "https://github.com/ryantm/agenix/archive/main.tar.gz"}/pkgs/agenix.nix" { })
+
+    pkgsUnstable.pop
   ];
 
   services.pcscd.enable = true;

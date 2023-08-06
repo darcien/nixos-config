@@ -32,7 +32,6 @@ in
     pkgsUnstable.just
     pkgsUnstable.lazygit
     pkgsUnstable.openssl
-    pkgsUnstable.pop
   ];
 
   services.vscode-server.enable = true;
