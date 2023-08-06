@@ -8,6 +8,7 @@
       p = "cd ~/projects";
       lg = "lazygit";
       update = "sudo nixos-rebuild switch";
+      upgrade = "sudo nixos-rebuild switch --upgrade";
       garbage = "nix-collect-garbage -d";
     };
 
