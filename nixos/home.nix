@@ -1,11 +1,7 @@
 { config, pkgs, ... }:
 
 let
-
-  # TODO: write about nix channel per user?
-  # https://nix-community.github.io/home-manager/index.html#_how_do_i_install_packages_from_nixpkgs_unstable
   pkgsUnstable = import <nixpkgs-unstable> { };
-
 in
 
 {
@@ -14,6 +10,7 @@ in
     "${fetchTarball "https://github.com/msteen/nixos-vscode-server/tarball/master"}/modules/vscode-server/home.nix"
 
     ./apps/git.nix
+    ./apps/lazygit.nix
     ./apps/lsd.nix
     ./apps/mcfly.nix
     ./apps/micro.nix
@@ -30,7 +27,6 @@ in
     pkgsUnstable.deno
     pkgsUnstable.hugo
     pkgsUnstable.just
-    pkgsUnstable.lazygit
     pkgsUnstable.openssl
   ];
 
