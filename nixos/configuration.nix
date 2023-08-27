@@ -14,6 +14,7 @@ in
     ./nginx.nix
     ./pelorperak.nix
     ./kidsfox.nix
+    ./smoldesk.nix
 
     <home-manager/nixos>
   ];
