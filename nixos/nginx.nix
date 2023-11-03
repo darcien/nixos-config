@@ -19,7 +19,10 @@ in
 
 {
 
-  services.nginx.package = pkgsUnstable.nginxMainline;
+  # Just use default version,
+  # using custom one can have build failures on some additional modules.
+  # e.g. `symbol lookup error` with brotli turned on.
+  # services.nginx.package = pkgsUnstable.nginxMainline;
 
   security.acme = {
     acceptTerms = true;
@@ -33,8 +36,7 @@ in
     recommendedProxySettings = true;
     recommendedTlsSettings = true;
     recommendedOptimisation = true;
-    # Setting does not exist on current ver yet
-    # recommendedBrotliSettings = true;
+    recommendedBrotliSettings = true;
     clientMaxBodySize = "1024m";
 
     # ref https://github.com/NULLx76/infrastructure/blob/5a26864eafc11f6535c53248919ff296f3ed941a/nixos/hosts/hades/nginx/configuration.nix#L62
