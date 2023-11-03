@@ -10,11 +10,12 @@ in
     ./networking.nix
     ./ssh.nix
     ./age.nix
-    ./garage.nix
+    # ./garage.nix
     ./nginx.nix
     ./pelorperak.nix
     ./kidsfox.nix
     ./smoldesk.nix
+    ./uptime-kuma.nix
 
     <home-manager/nixos>
   ];

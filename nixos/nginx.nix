@@ -5,6 +5,7 @@ let
 
   pelorperakUrl = "http://127.0.0.1:3000";
   kfSilverbulletUrl = "http://127.0.0.1:5252";
+  uptimeKumaUrl = "http://127.0.0.1:3001";
 
   proxy = url: {
     enableACME = true;
@@ -46,6 +47,11 @@ in
     virtualHosts."kf.darcien.dev" = proxy kfSilverbulletUrl;
     # https://👶🦊.darcien.dev (emoji -> punnycode)
     virtualHosts."xn--4q8hi5f.darcien.dev" = proxy kfSilverbulletUrl;
+
+    # status pages
+    # https://github.com/louislam/uptime-kuma/wiki/Status-Page
+    virtualHosts."status.kf.darcien.dev" = proxy uptimeKumaUrl;
+    virtualHosts."status.darcien.dev" = proxy uptimeKumaUrl;
   };
 
 }
