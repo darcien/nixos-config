@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 let
   pkgsUnstable = import <nixpkgs-unstable> { };
   silverbulletDir = "/home/darcien/projects/kidsfox/";
@@ -9,7 +9,7 @@ in
   systemd.services.kidsfox = {
     enable = true;
     serviceConfig = {
-      ExecStart = "/home/darcien/.deno/bin/silverbullet --auth=${silverbulletDir}.auth.json ${silverbulletDir}space/";
+      ExecStart = "/home/darcien/.deno/bin/silverbullet ${silverbulletDir}space/";
       WorkingDirectory = silverbulletDir;
 
       Restart = "on-failure";
@@ -18,6 +18,8 @@ in
       # otherwise it will default as root user
       User = "darcien";
       Group = "users";
+
+      EnvironmentFile = config.age.secrets.kidsfox.path;
     };
 
     environment = {
