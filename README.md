@@ -6,6 +6,6 @@
 Personal config files for NixOS.
 Currently running on an infected Ubuntu 22 LTS droplet.
 
-- release channel: 23.05
+- release channel: 23.11
 - home manager: yes
 - flakes: no

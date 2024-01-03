@@ -30,6 +30,14 @@
   # when using MagicDNS with no systemd-networkd.
   # https://github.com/tailscale/tailscale/issues/8563
   systemd.network.enable = true;
+  # warning: The combination of `systemd.network.enable = true`,
+  # `networking.useDHCP = true` and `networking.useNetworkd = false` can
+  # cause both networkd and dhcpcd to manage the same interfaces.
+  # This can lead to loss of networking.
+  # It is recommended you choose only one of networkd
+  # (by also enabling `networking.useNetworkd`)
+  # or scripting (by disabling `systemd.network.enable`)
+  networking.useNetworkd = true;
 
   # Fix `Timeout occurred while waiting for network connectivity.` error
   # when rebuilding.
@@ -39,7 +47,10 @@
   systemd.services.systemd-networkd-wait-online.enable = lib.mkForce false;
 
   networking = {
-    defaultGateway = "167.172.64.1";
+    defaultGateway = {
+      address = "167.172.64.1";
+      interface = "eth0";
+    };
     defaultGateway6 = {
       address = "2400:6180:0:d0::1";
       interface = "eth0";
