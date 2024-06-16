@@ -16,6 +16,7 @@ in
     ./apps/mcfly.nix
     ./apps/micro.nix
     ./apps/starship.nix
+    ./apps/tmux.nix
     ./apps/zsh.nix
   ];
 
