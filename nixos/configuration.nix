@@ -38,7 +38,6 @@ in
     htop
     lsof
     nixpkgs-fmt # https://github.com/nix-community/nixpkgs-fmt
-    pinentry-curses
     wget
 
     (pkgs.callPackage "${builtins.fetchTarball "https://github.com/ryantm/agenix/archive/main.tar.gz"}/pkgs/agenix.nix" { })
@@ -49,7 +48,7 @@ in
   services.pcscd.enable = true;
   programs.gnupg.agent = {
     enable = true;
-    pinentryFlavor = "curses";
+    pinentryPackage = pkgs.pinentry-curses;
     enableSSHSupport = true;
   };
 
