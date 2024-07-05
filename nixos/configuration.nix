@@ -11,6 +11,10 @@ in
     ./ssh.nix
     ./age.nix
     # ./garage.nix
+    # Disabling grafana for now,
+    # current machine is not strong enough for running oncall dependencies.
+    # ./grafana.nix
+    # ./grafana-oncall.nix
     ./nginx.nix
     ./pelorperak.nix
     ./kidsfox.nix
