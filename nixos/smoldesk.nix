@@ -6,6 +6,8 @@ in
 {
 
   systemd.timers.smoldesk = {
+    # 2024-12-23, disabled, no more API access.
+    enable = false;
     after = [
       "network-online.target"
     ];
